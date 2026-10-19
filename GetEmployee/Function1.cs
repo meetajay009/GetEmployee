@@ -7,12 +7,25 @@ namespace GetEmployee;
 
 public class EmployeeDetail
 {
+    /// <summary>
+    /// Private variable
+    /// </summary>
     private readonly ILogger<EmployeeDetail> _logger;
 
+    /// <summary>
+    /// Constructor 
+    /// </summary>
+    /// <param name="logger"></param>
     public EmployeeDetail(ILogger<EmployeeDetail> logger)
     {
         _logger = logger;
     }
+
+    /// <summary>
+    /// Get employee using azure function
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
 
     [Function("GetEmployee")]
     public IActionResult GetEmployee([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
